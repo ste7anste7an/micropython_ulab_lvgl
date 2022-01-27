@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Initialize lv_micropython submodule
-      run: git submodule update --init --recursive lv_micropython
+      run: git submodule update --init --recursive lv_micropython@d8a6891
       working-directory: lv_micropython 
     - name: Initialize lv_bindings submodule
       run: git submodule update --init --recursive lib/lv_bindings
