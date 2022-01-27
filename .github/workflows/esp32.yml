@@ -14,6 +14,9 @@ on:
 
 jobs:
   build_idf402:
+    defaults:
+      run:
+        working-directory: micropython_ulab_lvgl
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
@@ -25,6 +28,9 @@ jobs:
       run: source tools/ci.sh && ci_esp32_build
 
   build_idf43:
+    defaults:
+      run:
+        working-directory: micropython_ulab_lvgl
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
