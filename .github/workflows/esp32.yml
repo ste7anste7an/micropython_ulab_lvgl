@@ -14,29 +14,29 @@ on:
 
 jobs:
   build_idf402:
-    defaults:
-      run:
-        working-directory: micropython_ulab_lvgl
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Initialize lv_bindings submodule
       run: git submodule update --init --recursive lib/lv_bindings
+      working-directory: micropython_ulab_lvgl
     - name: Install packages
       run: source tools/ci.sh && ci_esp32_idf402_setup
+      working-directory: micropython_ulab_lvgl
     - name: Build
       run: source tools/ci.sh && ci_esp32_build
+      working-directory: micropython_ulab_lvgl
 
   build_idf43:
-    defaults:
-      run:
-        working-directory: micropython_ulab_lvgl
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Initialize lv_bindings submodule
       run: git submodule update --init --recursive lib/lv_bindings
+      working-directory: micropython_ulab_lvgl
     - name: Install packages
       run: source tools/ci.sh && ci_esp32_idf43_setup
+      working-directory: micropython_ulab_lvgl
     - name: Build
       run: source tools/ci.sh && ci_esp32_build
+      working-directory: micropython_ulab_lvgl
