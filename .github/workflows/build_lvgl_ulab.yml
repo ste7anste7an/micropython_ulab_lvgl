@@ -37,7 +37,7 @@ jobs:
         cp ports/esp32/makefile_M5CORE2 ports/esp32/makefile
         source tools/ci.sh && ci_esp32_build
       working-directory: lv_micropython 
-    - name: Build esp32_ulab_
+    - name: Build esp32_ulab
       run: |
         cp ports/esp32/makefile_GENERIC_ULAB_LVGL_SPIRAM ports/esp32/makefile
         source tools/ci.sh && ci_esp32_build
