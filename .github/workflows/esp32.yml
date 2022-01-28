@@ -30,19 +30,4 @@ jobs:
       run: source tools/ci.sh && ci_esp32_build
       working-directory: lv_micropython 
 
-  build_idf43:
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: Initialize lv_micropython submodule
-      run: git submodule update --init --recursive 
-      working-directory: lv_micropython 
-    - name: Initialize lv_bindings submodule
-      run: git submodule update --init --recursive lib/lv_bindings
-      working-directory: lv_micropython 
-    - name: Install packages
-      run: source tools/ci.sh && ci_esp32_idf43_setup
-      working-directory: lv_micropython 
-    - name: Build
-      run: source tools/ci.sh && ci_esp32_build
-      working-directory: micropython_ulab_lvgl
+ 
