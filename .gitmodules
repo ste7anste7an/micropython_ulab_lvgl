@@ -1,3 +1,9 @@
 [submodule "lv_micropython"]
 	path = lv_micropython
 	url = https://github.com/lvgl/lv_micropython
+[submodule "UartRemote"]
+	path = UartRemote
+	url = https://github.com/antonvh/UartRemote.git
+[submodule "micropython-ulab"]
+	path = micropython-ulab
+	url = https://github.com/v923z/micropython-ulab.git
