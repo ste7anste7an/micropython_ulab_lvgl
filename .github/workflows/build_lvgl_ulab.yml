@@ -1,0 +1,55 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build LVGL Ulab
+
+on:
+  push:
+  pull_request:
+    paths:
+      - '.github/workflows/*.yml'
+      - 'tools/**'
+      - 'py/**'
+      - 'extmod/**'
+      - 'lib/**'
+      - 'drivers/**'
+      - 'ports/esp32/**'
+
+jobs:
+  build_idf402:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Initialize lv_micropython submodule
+      run: git submodule update --init --recursive 
+      working-directory: lv_micropython 
+    - name: Initialize lv_bindings submodule
+      run: git submodule update --init --recursive lib/lv_bindings
+      working-directory: lv_micropython 
+    - name: Install packages
+      run: source tools/ci.sh && ci_esp32_idf402_setup
+      working-directory: lv_micropython 
+    - name: Patch files
+      run: |
+        cp -a tools lv_micropython
+        cp -a ports lv_micropython
+        cp -a lib lv_micropython
+    - name: Build M5Stack
+      run: |
+        cp ports/esp32/makefile_M5CORE2 ports/esp32/makefile
+        source tools/ci.sh && ci_esp32_build
+      working-directory: lv_micropython 
+    - name: Build esp32_ulab_
+      run: |
+        cp ports/esp32/makefile_GENERIC_ULAB_LVGL_SPIRAM ports/esp32/makefile
+        source tools/ci.sh && ci_esp32_build
+      working-directory: lv_micropython 
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: firmeware_GENERIC_ULAB_LVGL_SPIRAM.bin
+        path: lv_micropython/ports/esp32/build-GENERIC_ULAB_LVGL_SPIRAM/firmware.bin
+        
+    - uses: actions/upload-artifact@v2
+      with:
+        name: firmeware_M5CORE2_ULAB_LVGL_SPIRAM.bin
+        path: lv_micropython/ports/esp32/build-M5CORE2/firmware.bin
