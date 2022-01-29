@@ -30,7 +30,6 @@ jobs:
       working-directory: lv_micropython 
     - name: Initialize lv_micropython submodule
       run: git submodule update --init --recursive lv_micropython 
-      working-directory: lv_micropython 
     - name: Initialize lv_bindings submodule
       run: git submodule update --init --recursive lib/lv_bindings
       working-directory: lv_micropython 
