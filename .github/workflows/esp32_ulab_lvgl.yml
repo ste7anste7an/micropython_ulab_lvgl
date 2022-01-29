@@ -28,6 +28,7 @@ jobs:
       run: |
         cp -a tools lv_micropython
         cp -a ports lv_micropython
+        cp UartRemote/MicroPython/uartremote.py ports/esp32/modules
         cp -a lib lv_micropython
     - name: Install packages
       run: source tools/ci.sh && ci_esp32_idf402_setup
