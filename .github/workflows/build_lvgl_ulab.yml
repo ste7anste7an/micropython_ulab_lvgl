@@ -30,7 +30,7 @@ jobs:
       working-directory: lv_micropython 
     - name: Install packages
       #run: source tools/ci.sh && ci_esp32_idf402_setup
-      run: source tools/ci.sh && ci_esp32_idf44_setup
+      run: source tools/ci.sh && ci_esp32_idf431_setup
       working-directory: lv_micropython 
     - name: Patch files
       run: |
