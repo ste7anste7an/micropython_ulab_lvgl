@@ -40,6 +40,7 @@ jobs:
     - name: Build M5Stack
       run: |
         cp ports/esp32/makefile_M5CORE2 ports/esp32/makefile
+        source esp-idf/export.sh
         make -C mpy-cross
         cd ports/esp32
         make submodules
@@ -48,6 +49,7 @@ jobs:
     - name: Build esp32_ulab
       run: |
         cp ports/esp32/makefile_GENERIC_ULAB_LVGL_SPIRAM ports/esp32/makefile
+        source esp-idf/export.sh
         make -C mpy-cross
         cd ports/esp32
         make submodules
