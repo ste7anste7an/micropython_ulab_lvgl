@@ -27,4 +27,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: install_uartremote.py
-        path: UartRemote/MicroPython/SPIKEinstall_uartremote.py
+        path: UartRemote/MicroPython/SPIKE/install_uartremote.py
