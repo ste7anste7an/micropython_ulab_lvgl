@@ -25,10 +25,7 @@ jobs:
         make -C micropython/mpy-cross
         micropython/mpy-cross/mpy-cross  -march=xtensa UartRemote/MicroPython/uartremote.py -o uartremote.mpy
         python --version
-    - name: Build
-      run: source tools/ci.sh && ci_esp32_build
-      working-directory: lv_micropython 
-
+   
     - uses: actions/upload-artifact@v2
       with:
         name: uartremote.mpy
