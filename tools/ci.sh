@@ -108,7 +108,7 @@ function ci_esp32_idf402_setup {
 
 function ci_esp32_idf44_setup {
     # This commit is just before v5.0-dev
-    ci_esp32_setup_helper 142bb32c50fa9875b8b69fa539a2d59559460d72
+    # ci_esp32_setup_helper 142bb32c50fa9875b8b69fa539a2d59559460d72
     ci_esp32_setup_helper v4.3.1
     
 }
