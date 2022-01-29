@@ -14,7 +14,7 @@ on:
 
 
 jobs:
-  build_idf402:
+  build_idf431:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
@@ -22,15 +22,15 @@ jobs:
       run: git submodule update --init --recursive micropython-ulab
     - name: show path
       run: cat micropython-ulab/requirements.txt
+    - name: Install packages
+      #run: source tools/ci.sh && ci_esp32_idf402_setup
+      run: source tools/ci.sh && ci_esp32_idf431_setup
+      working-directory: lv_micropython 
     - name: Initialize lv_micropython submodule
       run: git submodule update --init --recursive 
       working-directory: lv_micropython 
     - name: Initialize lv_bindings submodule
       run: git submodule update --init --recursive lib/lv_bindings
-      working-directory: lv_micropython 
-    - name: Install packages
-      #run: source tools/ci.sh && ci_esp32_idf402_setup
-      run: source tools/ci.sh && ci_esp32_idf431_setup
       working-directory: lv_micropython 
     - name: Patch files
       run: |
