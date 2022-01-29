@@ -42,5 +42,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: firmeware_GENERIC_ULAB_LVGL_SPIRAM.bin
+        name: firmware_GENERIC_ULAB_LVGL_SPIRAM.bin
         path: lv_micropython/ports/esp32/build-GENERIC_ULAB_LVGL_SPIRAM/firmware.bin
