@@ -22,6 +22,8 @@ jobs:
       run: git submodule update --init --recursive micropython-ulab
     - name: show path
       run: cat micropython-ulab/requirements.txt
+    - name: Patch files
+      run: cp -a tools lv_micropython
     - name: Install packages
       #run: source tools/ci.sh && ci_esp32_idf402_setup
       run: source tools/ci.sh && ci_esp32_idf431_setup
