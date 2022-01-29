@@ -1,0 +1,38 @@
+git clone --depth 1 https://github.com/micropython/micropython.git
+
+
+name: make uartremote
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  uartremote:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Initialize micropython  mpy_cross
+      run: git clone --depth 1 https://github.com/micropython/micropython.git
+    - name: Initialize micropython-ulab submodule
+      run: git submodule update --init --recursive UartRemote
+    - name: Patch files
+      run: |
+        make -C micropython/mpy-cross
+        micropython/mpy-cross/mpy-cross  -march=xtensa UartRemote/MicroPython/uartremote.py -o uartremote.mpy
+        python --version
+    - name: Build
+      run: source tools/ci.sh && ci_esp32_build
+      working-directory: lv_micropython 
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: uartremote.mpy
+        path: uartremote.mpy
