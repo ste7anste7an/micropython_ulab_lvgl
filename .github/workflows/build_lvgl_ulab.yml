@@ -29,7 +29,7 @@ jobs:
       run: source tools/ci.sh && ci_esp32_idf431_setup
       working-directory: lv_micropython 
     - name: Initialize lv_micropython submodule
-      run: git submodule update --init --recursive 
+      run: git submodule update --init --recursive lv_micropython 
       working-directory: lv_micropython 
     - name: Initialize lv_bindings submodule
       run: git submodule update --init --recursive lib/lv_bindings
