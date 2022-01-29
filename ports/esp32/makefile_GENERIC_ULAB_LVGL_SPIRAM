@@ -1,4 +1,4 @@
 BOARD = GENERIC_ULAB_LVGL_SPIRAM
-USER_C_MODULES = ../../../../micropython-ulab/code/micropython.cmake
+USER_C_MODULES = ${GITHUB_WORKSPACE}/micropython-ulab/code/micropython.cmake
 LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1"
 include Makefile
