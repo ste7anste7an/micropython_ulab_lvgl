@@ -18,14 +18,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
+    - name: Initialize micropython-ulab submodule
+      run: git submodule update --init --recursive micropython-ulab
+    - name: show path
+      run: cat micropython-ulab/requirements.txt
     - name: Initialize lv_micropython submodule
       run: git submodule update --init --recursive 
       working-directory: lv_micropython 
     - name: Initialize lv_bindings submodule
       run: git submodule update --init --recursive lib/lv_bindings
       working-directory: lv_micropython 
-    - name: Initialize micropython-ulab submodule
-      run: git submodule update --init --recursive micropython-ulab
     - name: Install packages
       run: source tools/ci.sh && ci_esp32_idf402_setup
       working-directory: lv_micropython 
