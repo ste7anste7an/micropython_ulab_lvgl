@@ -1,0 +1,35 @@
+name: esp32 upload
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  build_idf402:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Initialize lv_micropython submodule
+      run: git submodule update --init --recursive 
+      working-directory: lv_micropython 
+    - name: Initialize lv_bindings submodule
+      run: git submodule update --init --recursive lib/lv_bindings
+      working-directory: lv_micropython 
+    - name: Install packages
+      run: source tools/ci.sh && ci_esp32_idf402_setup
+      working-directory: lv_micropython 
+    - name: Build
+      run: source tools/ci.sh && ci_esp32_build
+      working-directory: lv_micropython 
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: firmeware_GENERIC_ULAB_LVGL_SPIRAM.bin
+        path: lv_micropython/ports/esp32/build-GENERIC/firmware.bin
