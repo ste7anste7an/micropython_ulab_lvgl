@@ -117,7 +117,7 @@ function ci_esp32_build {
     source esp-idf/export.sh
     make ${MAKEOPTS} -C mpy-cross
     make ${MAKEOPTS} -C ports/esp32 submodules
-    make ${MAKEOPTS} -C ports/esp32 BOARD=GENERIC_ULAB_LVGL_SPIRAM USER_C_MODULES = $GITHUB_WORKSPACE/micropython-ulab/code/micropython.cmake LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1" FROZEN_MANIFEST=$(pwd)/ports/esp32/boards/manifest.py
+    make ${MAKEOPTS} -C ports/esp32 BOARD=GENERIC_ULAB_LVGL_SPIRAM USER_C_MODULES=${GITHUB_WORKSPACE}/micropython-ulab/code/micropython.cmake LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1" FROZEN_MANIFEST=$(pwd)/ports/esp32/boards/manifest.py
     # if [ -d $IDF_PATH/components/esp32c3 ]; then
     #     make ${MAKEOPTS} -C ports/esp32 BOARD=GENERIC_C3
     # fi
