@@ -24,9 +24,10 @@ jobs:
       run: |
         cd UartRemote/MicroPython/SPIKE
         python create_install_file.py
+        cp UartRemote/MicroPython/SPIKE/install_uartremote.py tools/.
+        cp UartRemote/MicroPython/SPIKE/uartremote.mpy tools/.
     - name: Commit report
       run: |
-          cd 
           git config --global user.name 'Ste7an'
           git config --global user.email 'ste7anste7an@users.noreply.github.com'
           git add .
