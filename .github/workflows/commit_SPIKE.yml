@@ -24,8 +24,11 @@ jobs:
       run: |
         cd UartRemote/MicroPython/SPIKE
         python create_install_file.py
+    - name: copy build files
+      run: |
         cp UartRemote/MicroPython/SPIKE/install_uartremote.py tools/.
         cp UartRemote/MicroPython/SPIKE/uartremote.mpy tools/.
+     
     - name: Commit report
       run: |
           git config --global user.name 'Ste7an'
