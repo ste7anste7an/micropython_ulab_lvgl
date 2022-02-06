@@ -8,6 +8,7 @@ This is an automatic build environment for building the latest MicroPython firmw
 
 The ready to use firmware can be found in the [build directory](https://github.com/ste7anste7an/micropython_ulab_lvgl/tree/main/build)
 
+[![ESP32 ULAB_LVGL_SPIRAM](https://github.com/ste7anste7an/micropython_ulab_lvgl/actions/workflows/esp32_ulab_lvgl.yml/badge.svg)](https://github.com/ste7anste7an/micropython_ulab_lvgl/actions/workflows/esp32_ulab_lvgl.yml)
 
 ## Documentation
 
