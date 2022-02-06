@@ -39,7 +39,15 @@ jobs:
     - name: Build
       run: source tools/ci.sh && ci_esp32_build
       working-directory: lv_micropython 
-
+    - run: |
+        export TIMESTAMP=`date +%Y%m%d-%H%M`
+        export FIRMWARE=firmware_ESP32_ULAB_LVGL_SPIRAM_$TIMESTAMP.bin
+        cp lv_micropython/ports/esp32/build-GENERIC_ULAB_LVGL_SPIRAM/firmware.bin build/$FIRMWARE
+        git config --global user.name 'Ste7an'
+        git config --global user.email 'ste7anste7an@users.noreply.github.com'
+        git add build
+        git diff --exit-code || git commit -m "compiled by GitHub Action"
+        git push
     - uses: actions/upload-artifact@v2
       with:
         name: firmware_GENERIC_ULAB_LVGL_SPIRAM.bin
