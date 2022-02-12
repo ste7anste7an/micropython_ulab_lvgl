@@ -1,4 +1,4 @@
-name: ESP32 ULAB_LVGL_SPIRAM
+name: ESP32 idf4.4 ULAB_LVGL_SPIRAM
 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
