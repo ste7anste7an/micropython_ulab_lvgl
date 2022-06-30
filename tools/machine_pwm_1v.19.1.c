@@ -98,7 +98,7 @@ STATIC ledc_timer_config_t timers[PWM_TIMER_MAX];
 #define UI_RES_SHIFT (UI_RES_16_BIT - HIGHEST_PWM_RES) // 0 for ESP32, 2 for S2, S3, C3
 
 // If the PWM frequency is less than EMPIRIC_FREQ, then LEDC_REF_CLK_HZ(1 MHz) source is used, else LEDC_APB_CLK_HZ(80 MHz) source is used
-#define EMPIRIC_FREQ (10) // Hz
+#define EMPIRIC_FREQ (630) // Hz
 
 // Config of timer upon which we run all PWM'ed GPIO pins
 STATIC bool pwm_inited = false;
