@@ -19,5 +19,5 @@ This is still experimental. The examples on [LVGL 9.0](https://docs.lvgl.io/mast
 Differences:
 - buttons -> btn
 - image -> img
-- ... and possible other incosistancies
+- ... and possible other inconsistencies
 
